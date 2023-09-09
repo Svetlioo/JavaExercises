@@ -1,3 +1,5 @@
+package BasicSyntax;
+
 import java.util.Scanner;
 
 public class Office {
@@ -8,7 +10,7 @@ public class Office {
         double second = first * 0.80;
         double third = (first + second) * 1.15;
 
-        System.out.printf("First: %.3f\nSecond: %.3f\nThird: %.3f\nAll: %.3f", first, second, third, first+second+third
+        System.out.printf("BasicSyntax.First: %.3f\nBasicSyntax.Second: %.3f\nThird: %.3f\nAll: %.3f", first, second, third, first+second+third
 
         );
     }
