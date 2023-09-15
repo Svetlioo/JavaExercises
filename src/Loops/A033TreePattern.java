@@ -2,7 +2,7 @@ package Loops;
 
 import java.util.Scanner;
 
-public class A33TreePattern {
+public class A033TreePattern {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
