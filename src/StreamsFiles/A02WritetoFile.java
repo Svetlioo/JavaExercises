@@ -5,22 +5,18 @@ import java.util.regex.Pattern;
 
 public class A02WritetoFile {
     public static void main(String[] args) {
-        String path = "/Users/djamistyle/Desktop/Java Projects/Java Exercises/src/StreamsFiles/input.txt";
+        String inputPath = "/Users/djamistyle/Desktop/Java Projects/Java Exercises/src/StreamsFiles/input.txt";
+        String outputPath = "/Users/djamistyle/Desktop/Java Projects/Java Exercises/src/StreamsFiles/output.txt";
         String symbolPattern = "[,.!?;]";
         Pattern pattern = Pattern.compile(symbolPattern);
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
-            int charRead;
-            StringBuilder filteredText = new StringBuilder();
-
-            while ((charRead = reader.read()) != -1) {
-                char character = (char) charRead;
-                if (!pattern.matcher(String.valueOf(character)).find()) {
-                    filteredText.append(character);
+        try (InputStream in = new FileInputStream(inputPath);
+             OutputStream out = new FileOutputStream(outputPath)) {
+            int oneByte;
+            while ((oneByte = in.read()) >= 0) {
+                if (!pattern.matcher(String.valueOf((char) oneByte)).find()) {
+                    out.write(oneByte);
                 }
             }
-
-            System.out.println(filteredText);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
